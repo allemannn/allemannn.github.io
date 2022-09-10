@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Hello, alex</title>
+    </head>
+    <body>
+        <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Hej där christer</a>
+            <a href="#">Hej där carina</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+          </div>
+            <div class="div">
+                <button class="openbtn" onclick="openNav()">&#9776; Alex sidopanel</button>
+                <p id="a"> inputs: rainbow , red , green ,blue</p>
+            </div>
+
+
+        <h1 id="h1">Welcome to Color Land</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/SMPTE_Color_Bars.svg/1200px-SMPTE_Color_Bars.svg.png" alt="color pic" style="width:300px;height:225px" class="center">
+      <form class = "först" >
+        <label id="label_1"  for="fname">Color of the website:</label>
+        <input autocomplete= "off" type="text" id="name" placeholders="name" class="name" style="color:green;">
+        <input type="submit" id="i2">
+        <input type="reset" class="kebab">
+      </form>
+
+      <script>
+        function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+            }
+
+        /* Set the width of the sidebar to 0 (hide it) */
+        function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+        }
+        var h_1 = document.getElementById('h1');
+        const l_1 = document.getElementById('label_1');
+        h_1.addEventListener('click', function onClick(event) {
+            h_1.style.color = 'salmon';
+            setTimeout(resetl1, 1000);
+            function resetl1() {
+                h_1.style.color = 'black';
+            }
+        });
+
+
+        l_1.addEventListener('click', function onClick(event) {
+            console.log(event.target);
+            l_1.style.color = 'blue';
+            setTimeout(resetl1, 1000);
+            function resetl1() {
+                l_1.style.color = 'black';
+            }
+            l_1.style.color = 'blue';
+        });
+        document.querySelector('form.först').addEventListener('submit' , function(e){
+            let name = document.querySelector('#name').value;
+
+            if (name.toLowerCase() === "green" || name.toLowerCase() === "blue" || name.toLowerCase() === "red")
+            {
+                document.body.style.backgroundColor = name;
+            }
+            if (name.toLowerCase() === "rainbow")
+            {
+                var i = 1;                                                          //  set your counter to 1
+
+                function myLoop() {                                                 //  create a loop function
+                setTimeout(function() {                                             //  call a 3s setTimeout when the loop is called
+                document.body.style.backgroundColor = "blue";
+                document.body.style.color = "white";
+                h_1.style.color = "white";
+                l_1.style.color = "white";
+                setTimeout(delay1, 100);
+                function delay1(){document.body.style.backgroundColor = "red";
+                document.body.style.color = "blue";
+                h_1.style.color = "blue";
+                hl_1.style.color = "blue";}
+                setTimeout(delay2, 200);
+                function delay2(){document.body.style.backgroundColor = "green";
+                document.body.style.color = "red";
+                h_1.style.color = "red";
+                l_1.style.color = "red";}   //  your code here
+                i++;                                                                //  increment the counter
+                if (i < 30) {                                                       //  if the counter < 10, call the loop function
+                myLoop();                                                           //  ..  again which will trigger another
+                        }                                                           //  ..  setTimeout()
+                        }, 300)
+                }
+
+                myLoop();
+
+                setTimeout(back, 300*31)                                            // 300*x x is equal to how many loops
+                function back(){
+                    document.body.style.backgroundColor = "white";
+            h_1.style.color = "black";
+            l_1.style.color = "black";
+
+                }
+            }
+            e.preventDefault()
+        });
+        document.querySelector('form.först').addEventListener('reset' , function(e){
+            document.body.style.backgroundColor = "white";
+            h_1.style.color = "black";
+            l_1.style.color = "black";
+            e.preventDefault()
+        });
+
+
+    </script>
+
+    </body>
+</html>
